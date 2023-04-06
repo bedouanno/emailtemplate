@@ -13,9 +13,16 @@
         </div>
         <div class="card-body">
             <ul class="list-group">
-                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    test<span class="badge badge-primary badge-pill">14</span>
-                 </li>
+
+                    <?php if(!empty($tags)){ ?>
+                        <?php foreach($tags as $tag): ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a class="text-gray-900" href="javascript:;"><i class="fa fa-tags text-success"></i> <?php echo $tag['tag_name']; ?></a><span class="badge badge-primary badge-pill">14</span>
+                        </li>
+                        <?php endforeach; ?>
+                    <?php }else{ ?>
+                        <i>No tags list...</i>
+                    <?php } ?>
             </ul>
         </div>
     </div>

@@ -33,8 +33,9 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">All Email Templates</a>
-                        <a class="collapse-item" href="cards.html">tags</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>email-templates">All Email Templates</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>email-templates/create">Create Templates</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>tags">Tags</a>
                     </div>
                 </div>
             </li>

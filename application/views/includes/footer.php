@@ -60,6 +60,13 @@
     <script src="<?php echo base_url(); ?>/assets/js/demo/chart-pie-demo.js"></script>
 <script src="<?php echo base_url(); ?>/assets/sweet-modal/jquery.sweet-modal.min.js"></script>
 
+<script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
+
+
+<script>
+    CKEDITOR.addCss('.cke_editable p { margin: 0 !important; }');
+    CKEDITOR.replace( 'template_body' );
+</script>
 
 
 

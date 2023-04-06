@@ -50,9 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+// TAGS routes
+$route['email-templates'] = 'templates/index';
+$route['email-templates/create'] = 'templates/create';
 
+// TAGS routes
 $route['tags'] = 'tags/index';
 
+// Main routes
 $route['logout'] = 'login/logout';
 $route['login'] = 'login';
 $route['home'] = 'main/index';

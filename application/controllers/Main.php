@@ -32,6 +32,7 @@ class Main extends CI_Controller {
         public function index(){
                 $this->session_users();
                 $data = $this->general_info;
+                $data['tags'] = $this->tags_model->get_tags();
 
 
                 $data['title'] = 'Dashboard';
