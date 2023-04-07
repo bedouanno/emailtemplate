@@ -13,7 +13,12 @@
             <i class="fa fa-plus text-success mr-1"></i>Add Email Template          
           </div>
           <div class="card-body">
-              <form action="">
+                 <?php if(!empty(validation_errors()) and $this->input->post('submit')): ?>
+                  <div class="alert alert-dismissible alert-danger">
+                      <strong><?php echo validation_errors(); ?></strong>
+                  </div>
+                  <?php endif; ?>
+              <?php echo form_open('email-templates/create'); ?>
                 <div class="form-group row mb-0">
                   <div class="col-sm-12 pb-3">
                         <label for="template_name">Template Name:</label>
@@ -44,7 +49,7 @@
               <i class="fa fa-plus mr-2"></i>Add Template Category
               </div>
               <div class="card-body">
-                  <?php if(!empty(validation_errors())): ?>
+                  <?php if(!empty(validation_errors()) and $this->input->post('submit_category')): ?>
                   <div class="alert alert-dismissible alert-danger">
                       <strong><?php echo validation_errors(); ?></strong>
                   </div>

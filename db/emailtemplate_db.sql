@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 11:04 AM
+-- Generation Time: Apr 07, 2023 at 07:26 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -37,7 +37,7 @@ CREATE TABLE `etemp_category` (
 --
 
 INSERT INTO `etemp_category` (`id`, `category_name`) VALUES
-(10, 'APPS');
+(12, 'APPS');
 
 -- --------------------------------------------------------
 
@@ -57,10 +57,9 @@ CREATE TABLE `etemp_tags` (
 --
 
 INSERT INTO `etemp_tags` (`id`, `tag_name`, `date_created`, `created_by`) VALUES
-(1, 'test', '2023-04-06 07:19:08', 1),
-(2, 'email templates', '2023-04-06 07:19:32', 1),
-(3, 'update contents', '2023-04-06 07:58:59', 1),
-(4, 'seo', '2023-04-06 08:18:44', 1);
+(1, 'SEO', '2023-04-07 05:17:06', 1),
+(2, 'Access', '2023-04-07 05:17:16', 1),
+(3, 'Debug', '2023-04-07 05:17:21', 1);
 
 -- --------------------------------------------------------
 
@@ -76,6 +75,14 @@ CREATE TABLE `etemp_templates` (
   `template_date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `template_created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `etemp_templates`
+--
+
+INSERT INTO `etemp_templates` (`id`, `template_name`, `template_body`, `template_category`, `template_date_created`, `template_created_by`) VALUES
+(1, 'Maintenance', '<p><span style=\"font-family:Arial,Helvetica,sans-serif\">Dear Valued Client,</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\">We have implemented your requested change(s) on the website:</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#3498db\"><strong><span style=\"font-family:Arial,Helvetica,sans-serif\">xxxxxxxxxxxxyour orchestra entry will be pasted herexxxxxxxxxxx</span></strong></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#e67e22\"><em><span style=\"font-family:Arial,Helvetica,sans-serif\">======== use text below when instructions are all implemented</span></em></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\">Should you have other concerns, please let us know.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#e67e22\"><em><span style=\"font-family:Arial,Helvetica,sans-serif\">======== use text below when there are unimplemented instructions</span></em></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\">We are still working on the rest of your instructions.&nbsp; We will send you updates once done.</span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#e74c3c\"><em><span style=\"font-family:Arial,Helvetica,sans-serif\">note: if design na lang ang kulang and for approval pa no need mag we are still working...</span></em></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><br />\r\n<span style=\"font-family:Arial,Helvetica,sans-serif\">Sincerely,<br />\r\nProweaver Support Team</span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><em>{control number}</em></span></p>\r\n', 'APPS', '2023-04-07 05:18:39', 1),
+(2, 'DEV', '<p>Dear Valued Client,</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>We have implemented your requested change(s) on the website:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#3498db\"><strong><span style=\"font-family:Arial,Helvetica,sans-serif\">xxxxxxxxxxxxyour orchestra entry will be pasted herexxxxxxxxxxx</span></strong></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#e67e22\"><em>======== use text below when there are unimplemented instructions</em></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>We are still working on the rest of your instructions. We will send you updates once done.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#e74c3c\"><em>note: if design na lang ang kulang and for approval pa no need mag we are still working... and dili npd butngan ug should you have...</em></span></p>\r\n\r\n<p><br />\r\nSincerely,<br />\r\nProweaver Design Team</p>\r\n\r\n<p>{control number}</p>\r\n', 'APPS', '2023-04-07 05:20:11', 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +104,9 @@ CREATE TABLE `etemp_users` (
 --
 
 INSERT INTO `etemp_users` (`id`, `first_name`, `last_name`, `username`, `password`, `role`) VALUES
-(1, 'Obed', 'Ouano', 'bedouano', '202cb962ac59075b964b07152d234b70', 1);
+(1, 'Obed', 'Ouano', 'bedouano', '202cb962ac59075b964b07152d234b70', 1),
+(3, 'admin', 'User', 'admin', '202cb962ac59075b964b07152d234b70', 0),
+(4, 'admin', 'User', 'admin', '202cb962ac59075b964b07152d234b70', 1);
 
 --
 -- Indexes for dumped tables
@@ -137,25 +146,25 @@ ALTER TABLE `etemp_users`
 -- AUTO_INCREMENT for table `etemp_category`
 --
 ALTER TABLE `etemp_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `etemp_tags`
 --
 ALTER TABLE `etemp_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `etemp_templates`
 --
 ALTER TABLE `etemp_templates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `etemp_users`
 --
 ALTER TABLE `etemp_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

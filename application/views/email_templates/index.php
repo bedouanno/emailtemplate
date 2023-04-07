@@ -8,23 +8,19 @@
 
     <div class="row">
 
-      <div class="col-lg-6">
-        <div class="card">
-          <div class="card-header">
-            <strong>Apps - Maintenance</strong>
-          </div>
-          <div class="card-body">
-              <div class="email_header">
-                <span class="d-block">Email Subject:</span>
-                <span class="d-block">To:</span>
-                <span class="d-block">Cc:</span>
-                <span class="d-block">Agent to Queue:</span>
-              </div>
-              <p>contents here...</p>
+
+        <?php foreach($list_templates as $template): ?>
+        <div class="col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-header">
+              <strong><?php echo $template['template_category'].' - '.$template['template_name']; ?></strong>
+            </div>
+            <div class="card-body csstemplate">
+                <?php echo $template['template_body']; ?>
+            </div>
           </div>
         </div>
-
-      </div>
+      <?php endforeach; ?>
     </div>
 
 

@@ -65,6 +65,8 @@
 
 <script>
     CKEDITOR.addCss('.cke_editable p { margin: 0 !important; }');
+    CKEDITOR.ENTER_BR;
+    CKEDITOR.config.autoParagraph = false;
     CKEDITOR.replace( 'template_body' );
 </script>
 
