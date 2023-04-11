@@ -65,11 +65,25 @@
 
 <script>
     CKEDITOR.addCss('.cke_editable p { margin: 0 !important; }');
-    CKEDITOR.ENTER_BR;
+    CKEDITOR.ENTER_BR = 1;
     CKEDITOR.config.autoParagraph = false;
     CKEDITOR.replace( 'template_body' );
 </script>
 
+<script>
+function copyToClipboard(element) {
+    var $temp = $("<textarea></textarea>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+
+    $.sweetModal({
+    content: "<strong style='color:#000'>Copied Email Template</strong>",
+    icon: $.sweetModal.ICON_SUCCESS});
+
+}
+</script>
 
 
      <?php if($this->session->flashdata('msg')): ?>
