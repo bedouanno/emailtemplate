@@ -44,6 +44,27 @@ class Templates extends CI_Controller {
        
         }
 
+        public function view($id = NULL){
+                $this->session_users();
+                $data = $this->general_info;
+                $data['title'] = 'View';
+
+                $data['template'] = $this->templates_model->get_template($id);
+
+
+
+                if(empty($data['template'])){
+                        redirect('email-templates');
+                }
+                
+                $this->load->view('includes/head', $data);
+                $this->load->view('includes/siderbar');
+                $this->load->view('includes/header', $data);
+                $this->load->view('email_templates/view', $data);
+                $this->load->view('includes/footer');
+       
+        }
+
         public function create(){
                 $this->session_users();
                 $data = $this->general_info;
@@ -98,7 +119,9 @@ class Templates extends CI_Controller {
 
                                 $this->templates_model->create_template($data_post);
                                 $this->session->set_flashdata('msg', 'Added Successfully!');
-                                redirect('email-templates/create');
+                                $lastid = $this->db->insert_id();
+
+                                redirect('email-templates/view/'. $lastid);
 
 
 
@@ -108,4 +131,57 @@ class Templates extends CI_Controller {
                 }
 
         }
+
+        public function edit($id = NULL){
+                $this->session_users();
+                $data = $this->general_info;
+                $data['title'] = 'Edit Email Templates';
+                $created_by = $data['user_info']['id'];
+                $data['list_category'] = $this->category_model->get_category();
+
+                $data['template'] = $this->templates_model->get_template($id);
+
+
+                if($this->input->post('submit_update')):
+                        $this->form_validation->set_rules('template_name','Template Name','required');
+                        $this->form_validation->set_rules('template_body','Template Body','required');
+                        $this->form_validation->set_rules('template_category','Template Category','required');
+                endif;
+                $this->form_validation->set_error_delimiters('', '');
+
+                if($this->form_validation->run() === FALSE){
+                        $this->load->view('includes/head', $data);
+                        $this->load->view('includes/siderbar');
+                        $this->load->view('includes/header', $data);
+                        $this->load->view('email_templates/edit', $data);
+                        $this->load->view('includes/footer');
+                }else{
+
+                        $data_post = array(
+                                'template_name' => $this->input->post('template_name'),
+                                'template_body' => $this->input->post('template_body'),
+                                'template_category' => $this->input->post('template_category'),
+                                'template_created_by' => $created_by
+                        );
+
+                        $this->templates_model->update_template($id,$data_post);
+                        $this->session->set_flashdata('msg', 'Updated Successfully!');
+                        redirect('email-templates/'.$id.'/edit');
+                }
+        }
+
+        public function delete_template($id =  NULL){
+                $this->session_users();
+                $data = $this->general_info;
+
+                $this->session->set_flashdata('msg', 'Deleted Success');
+                $this->db->delete('etemp_templates', array('id' => $id)); 
+                $this->db->delete('etemp_templates_tags', array('id_template' => $id)); 
+
+                redirect('email-templates');
+
+        }
+
+
+
 }

@@ -94,6 +94,32 @@ function copyToClipboard(element) {
     </script>
     <?php endif; ?>
 
+<script>
+    function deleteBtn(element) {
+ 
+
+    $.sweetModal.confirm('Confirm please?', function() {
+	$.sweetModal('email-templates/delete/'+element);
+    window.location.href = 'email-templates/delete/'+element;
+
+    });
+
+    }
+
+   
+
+
+  </script>
+
+<?php $this->load->view('includes/ajax.php'); ?>
+
+
+
+
+
+
+
+
 </body>
 
 </html>

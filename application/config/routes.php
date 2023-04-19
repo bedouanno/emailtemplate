@@ -50,17 +50,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-// TAGS routes
+$route['ajax'] = 'ajaxcontroller/do_ajax_post';
+$route['create_tag'] = 'ajaxcontroller/do_create_tag';
+$route['ajax-tags/(:any)'] = 'ajaxcontroller/do_ajax_tags/$1';
+$route['get-category'] = 'ajaxcontroller/get_ajax_category';
+$route['tags-json/(:any)'] = 'ajaxcontroller/get_ajax_tag/$1';
+$route['get-tags-template/(:any)'] = 'ajaxcontroller/get_tags_template/$1';
+$route['delete-tag/(:any)/(:any)'] = 'ajaxcontroller/delete_tag_ajax/$1/$2';
+
+
+// TEMPLATES routes
 $route['email-templates'] = 'templates/index';
+$route['email-templates/view/(:any)'] = 'templates/view/$1';
 $route['email-templates/create'] = 'templates/create';
+$route['email-templates/(:any)/edit'] = 'templates/edit/$1';
+
+$route['email-templates/delete/(:any)'] = 'templates/delete_template/$1';
 
 // TAGS routes
 $route['tags'] = 'tags/index';
+$route['tag/(:any)/view'] = 'tags/view/$1';
+
+// PUBLIC VIEW
+$route['view/tags'] = 'viewer/view_tags';
+$route['tag/(:any)/templates'] = 'viewer/view_tag/$1';
 
 // Main routes
 $route['logout'] = 'login/logout';
 $route['login'] = 'login';
 $route['home'] = 'main/index';
-$route['default_controller'] = 'main/index';
+$route['default_controller'] = 'viewer/index';
 $route['404_override'] = 'main/error_page';
 $route['translate_uri_dashes'] = FALSE;

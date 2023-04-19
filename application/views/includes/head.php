@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/sweet-modal/jquery.sweet-modal.min.css"/>
 
 </head>
-
 <body id="page-top">
 
     <!-- Page Wrapper -->

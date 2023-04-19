@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2023 at 11:02 AM
+-- Generation Time: Apr 19, 2023 at 11:50 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -38,8 +38,7 @@ CREATE TABLE `etemp_category` (
 
 INSERT INTO `etemp_category` (`id`, `category_name`) VALUES
 (1, 'APPS'),
-(2, 'Form'),
-(61, 'test');
+(2, 'Form');
 
 -- --------------------------------------------------------
 
@@ -49,19 +48,62 @@ INSERT INTO `etemp_category` (`id`, `category_name`) VALUES
 
 CREATE TABLE `etemp_tags` (
   `id` int(11) NOT NULL,
-  `tag_name` varchar(80) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `created_by` int(11) NOT NULL
+  `tag_name` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `etemp_tags`
 --
 
-INSERT INTO `etemp_tags` (`id`, `tag_name`, `date_created`, `created_by`) VALUES
-(1, 'SEO', '2023-04-07 05:17:06', 1),
-(2, 'Access', '2023-04-07 05:17:16', 1),
-(3, 'Debug', '2023-04-07 05:17:21', 1);
+INSERT INTO `etemp_tags` (`id`, `tag_name`) VALUES
+(5, 'access'),
+(18, 'analytics'),
+(37, 'audio'),
+(35, 'autoplay'),
+(52, 'blog'),
+(42, 'cache'),
+(16, 'calendar'),
+(7, 'client complaint'),
+(14, 'client inquire'),
+(53, 'content posting'),
+(48, 'copyright'),
+(30, 'cpanel'),
+(3, 'dev'),
+(41, 'error'),
+(31, 'follow up'),
+(33, 'fonts'),
+(29, 'ftp'),
+(11, 'google'),
+(12, 'google search'),
+(17, 'guidelines'),
+(49, 'image'),
+(20, 'inquiry'),
+(21, 'ip blocker'),
+(46, 'job listing'),
+(47, 'listing'),
+(51, 'local link'),
+(6, 'login'),
+(32, 'logo'),
+(2, 'maintenance'),
+(24, 'malware'),
+(27, 'music'),
+(13, 'newly launched'),
+(50, 'other'),
+(40, 'plugin'),
+(9, 'qa task'),
+(39, 'request'),
+(25, 'security'),
+(1, 'seo'),
+(54, 'smm'),
+(19, 'ssl'),
+(26, 'unlicensed '),
+(36, 'video'),
+(28, 'website access'),
+(15, 'website files'),
+(22, 'wp access'),
+(8, 'wp dashboard'),
+(44, 'wp update'),
+(43, 'wp version');
 
 -- --------------------------------------------------------
 
@@ -116,7 +158,7 @@ INSERT INTO `etemp_templates` (`id`, `template_name`, `template_body`, `template
 (31, 'Copyright Information for the Images on the Website', 'Dear Valued Client,<br />\r\n<br />\r\nBelow is the copyright information for the images on your website:<br />\r\n<br />\r\n<span style=\"color:#7f8c8d\">=======================</span><br />\r\n<br />\r\n&copy; Copyright <span style=\"color:#c0392b\"><em>{year}</em></span> by <span style=\"color:#c0392b\"><em>{company name}</em></span><br />\r\n<br />\r\n<br />\r\nAll photos are taken from stock photography companies. We use free and public domain images, specifically those that fit the nature of the business of the website project.<br />\r\n<br />\r\nThe copyright of this website and its images belong to {company name}. Any form of redistribution or reproduction of part or the entirety of the contents including its images is prohibited except for:<br />\r\n<br />\r\nA. Printing or Downloading to a local hard disk for personal or non-commercial use<br />\r\nB. Copying the content to individual third parties for their personal use, provided that the website is acknowledged as the source of the material<br />\r\n<br />\r\nUnless there is express written permission from {company name} to distribute or commercially exploit the content, viewers, or website visitors may not reproduce the contents from its website.<br />\r\n<br />\r\n<span style=\"color:#7f8c8d\">=======================</span><br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{website link here}</em></span><br />\r\n<br />\r\nShould you have other concerns, please let us know.<br />\r\n<br />\r\n<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em>', '1', '2023-04-12 03:34:18', 3),
 (32, 'ACF Instruction ', 'Dear Valued Client,<br />\r\n<br />\r\nTo update the section contents and images of the pages, see steps below:<br />\r\n<br />\r\n1. Login as administrator.<br />\r\n&nbsp;<br />\r\n<strong>WordPress Login Details:</strong><br />\r\n<span style=\"color:#c0392b\"><em>xxxxx link here xxxxx</em></span><br />\r\nUsername: <em><span style=\"color:#2980b9\">{ username here...}</span></em><br />\r\nPassword: <span style=\"color:#2980b9\"><em>{ password here...}</em></span><br />\r\n<br />\r\n2. After logging in to the Admin page, please hover on the &quot;<strong>Pages Options</strong>&quot; tab below &quot;<strong>Custom Fields</strong>&quot; at the left most column and click on the section you want to edit <em>(ex. Middle Area).</em><br />\r\n<br />\r\n3. It will then show the list of all the editable content. If not, please click the arrow at the top right of the white box to show its contents. After showing all the content, please follow the steps below for updating/adding contents:<br />\r\n<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1 To add row, boxes, or list, simply click the &quot;<strong>Add Row</strong>&quot; button, and the fields with empty values will appear.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For adding text, click on the field area and type the text contents to be displayed.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To add an image, click &quot;<strong>Select Image</strong>&quot; to select an image on your media library, upload the file if it is not yet added in the media library.<br />\r\n<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.2 To edit/update row, boxes, or list, please follow the steps below:<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Update an image or URL by clicking on it or the &quot;<strong>pencil</strong>&quot; icon displayed when hovering on it, and provide the necessary content it requires.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To update texts, click on the text area and update its contents.<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.3 To remove certain content/s, see below instructions:<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To remove row/s, list/s, or boxes, simply select the &quot;<strong>-</strong>&quot; button at the right end of every row when you hover on it, and click &quot;<strong>Remove</strong>&quot; after to delete it.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For removing images and links, click the &quot;<strong>X</strong>&quot; icon found along with its row when hovered.<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp;&nbsp; Note : Please follow how contents (images, texts, etc.) are configured.<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n4. After adding, updating or removing contents, you may click on &quot;<strong>Update</strong>&quot; blue button at the right column of the said page. It will then show a message &quot;<strong>Options Updated</strong>&quot;, an indicator that the update has been saved. Refresh the website page in which you have made changes.<br />\r\n<br />\r\nTo update sections on a specific page, see steps below:<br />\r\n<br />\r\n1. After logging in to the Admin page, please select the option &quot;<strong>Pages</strong>&quot; at the left most column and click on it.<br />\r\n<br />\r\n2. It will then show the list of all pages on your website. Please select the page that you want to edit the content or image.<br />\r\n<br />\r\n3. After selecting the page, it will take you to an editor section to edit the contents or image of your website.<br />\r\n<br />\r\n4. Below the white box, are the editable sections, labeled with its headings. After selecting the section/s you want to update or add, click on it to show its current contents.<br />\r\n<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.1 To add row, boxes, or list, simply click the &quot;<strong>Add Row</strong>&quot; button, and the fields with empty values will appear.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For adding text, click on the field area and type the text contents to be displayed.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To add an image, click &quot;<strong>Select Image</strong>&quot; to select an image on your media library, upload the file if it is not yet added in the media library.<br />\r\n<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.2 To edit/update row, boxes, or list, please follow the steps below:<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Update <strong>image </strong>or URL by clicking on it or the &quot;<strong>pencil</strong>&quot; icon displayed when hovering on it, and provide the necessary content it requires.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To update texts, click on the text area and update its contents.<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.3 To remove certain content/s, see below instructions:<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To remove row/s, list/s, or boxes, simply select the &quot;<strong>-</strong>&quot; button at the right end of every row when you hover on it, and click &quot;<strong>Remove</strong>&quot; after to delete it.<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For removing images and links, click the &quot;<strong>X</strong>&quot; icon found along with its row when hovered.<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp;&nbsp; Note : Please follow how contents (images, texts, etc.) are configured.<br />\r\n<br />\r\n5. After adding, updating or removing contents, you may click on &quot;<strong>Update</strong>&quot; blue button at the right column of the said page. It will then show a message &quot;<strong>Page updated</strong>&quot; and &quot;<strong>View Page</strong>&quot; link to view the said changes online at the top of the editor page, an indicator that the update has been saved.<br />\r\n<br />\r\nShould you have other concerns, please let us know.<br />\r\n<br />\r\n<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em>', '1', '2023-04-12 03:34:16', 3),
 (33, 'How to Make Changes on WP (Gutenberg)', 'Dear Valued Client,<br />\r\n<br />\r\nPlease see below for the steps on making changes on your website:<br />\r\n<br />\r\n1. Login to your Dashboard using the WordPress login details below:<br />\r\n<br />\r\nLogin Link: <span style=\"color:#2980b9\"><em>{login link here}</em></span><br />\r\nUsername: <em><span style=\"color:#2980b9\">{username here}</span></em><br />\r\nPassword: <span style=\"color:#2980b9\"><em>{password here}</em></span><br />\r\n<br />\r\n2. To add, delete or update pages, locate then click &quot;<strong>Pages</strong>&quot; on the left most section of the dashboard.<br />\r\nNOTE: All Pages &ndash; lists all pages of your website, Add New &ndash; allows you to add a new page<br />\r\n2.1. To make updates, click on the page you want to update. This will take you to a new window which allows you to make changes on that page. You can also hover on the page you want to update, and options will show below the title.<br />\r\n2.1.1. Please take note, there are 2 ways to edit the text contents on certain page of your website. It&#39;s either &quot;<strong>Visual Editor</strong>&quot; or &quot;<strong>Code Editor</strong>&quot;. If you are not capable of editing your website by adding HTML codes. You may select &quot;<strong>Visual Editor</strong>&quot; to add contents. If it&#39;s the other way around, you may select &quot;<strong>Code Editor</strong>&quot;. Also, these options can be found when you click the three dots on the upper right portion of the dashboard.<br />\r\n2.1.2. After updating or adding new text contents, you may click on Update, blue button at the right column of the said page. It will then show a message &quot;<strong>Page updated</strong>&quot; and &quot;<strong>View Page</strong>&quot; link to view the said changes online at the bottom part of the editor page, an indicator that the update has been saved.<br />\r\n3. To add images on a page, click on a page you want to add an image.<br />\r\n3.1. Locate &quot;<strong>Add Media</strong>&quot; button on the top portion of the content area, it will automatically appear when you start editing the page. Just hover on the icons to see the said tab.<br />\r\nNOTE: There are two ways to add images, add current images you have on your Media Library or Upload Files<br />\r\n3.2 Through Media Library<br />\r\n3.2.1 Click on the images you want to add, you may select multiple images by pressing hold &quot;<strong>Ctrl</strong>&quot; key then clicking on the images you want to add.<br />\r\n3.2.2 After choosing the images, click &quot;<strong>Insert into page</strong>&quot; on the bottom right of the pop-up window.<br />\r\n3.3 Through Upload Files<br />\r\n3.3.1 You can either &quot;<strong>Drag and Drop</strong>&quot; files on the pop window or &quot;<strong>Select Files</strong>&quot; to upload, the images you uploaded will automatically be selected.<br />\r\n3.3.2 Once done uploading, click &quot;<strong>Insert into page</strong>&quot; on the bottom right of the pop window.<br />\r\nNOTE: You can only upload images with a maximum file size of 128 MB.<br />\r\n<br />\r\nOnce done, hover &quot;<strong><em>Howdy, <span style=\"color:#c0392b\">{username}</span></em></strong>&quot; on the upper right portion of your dashboard, then click &quot;<strong>Log Out</strong>&quot; to avoid unnecessary changes.<br />\r\n<br />\r\nTo further make changes, please click on the link below to download the user manual:<br />\r\n<br />\r\n<span style=\"color:#c0392b\"><strong><em>https://{domain here}/Wordpress-Guide.pdf</em></strong></span><br />\r\n<br />\r\nShould you have other concerns, please let us know.<br />\r\n<br />\r\n<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em>', '1', '2023-04-12 03:34:15', 3),
-(34, 'Meta Keywords No Longer Factir ub SEI Rankings', 'Dear Valued Client,<br />\r\n<br />\r\nWe have created the information to Google Business Listing. However, it will not appear on maps or in search engines online until you verify your business. We can edit your business details, but it will not take effect until you complete the verification process.<br />\r\n<br />\r\nYour postcard that contains the verification code will arrive within 1&ndash;2 weeks at this location:<br />\r\n&nbsp;<br />\r\n<span style=\"color:#2980b9\"><em>{company address}</em></span><br />\r\n<br />\r\nOnce you received the postcard, please send us a screenshot of the code for us to verify your Google Business Listing. Please make sure to send it right away upon receiving since the code may expire after 30 days, or you may verify it on your end.<br />\r\n<br />\r\nHowever, if you have verified your account, you need to log in and add the code in the link provided below:<br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{google business link account}</em></span><br />\r\n<br />\r\nPlease refer the following information for your Google Business Gmail account:<br />\r\nEmail: <span style=\"color:#c0392b\"><em>sample@sample.com</em></span><br />\r\nPassword: <span style=\"color:#c0392b\"><em>1234</em></span><br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{website link}</em></span><br />\r\n<br />\r\n&nbsp;<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em>', '1', '2023-04-12 03:34:14', 3);
+(34, 'Meta Keywords No Longer Factor on SEO Rankings', 'Dear Valued Client,<br />\r\n<br />\r\nWe have created the information to Google Business Listing. However, it will not appear on maps or in search engines online until you verify your business. We can edit your business details, but it will not take effect until you complete the verification process.<br />\r\n<br />\r\nYour postcard that contains the verification code will arrive within 1&ndash;2 weeks at this location:<br />\r\n&nbsp;<br />\r\n<span style=\"color:#2980b9\"><em>{company address}</em></span><br />\r\n<br />\r\nOnce you received the postcard, please send us a screenshot of the code for us to verify your Google Business Listing. Please make sure to send it right away upon receiving since the code may expire after 30 days, or you may verify it on your end.<br />\r\n<br />\r\nHowever, if you have verified your account, you need to log in and add the code in the link provided below:<br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{google business link account}</em></span><br />\r\n<br />\r\nPlease refer the following information for your Google Business Gmail account:<br />\r\nEmail: <span style=\"color:#c0392b\"><em>sample@sample.com</em></span><br />\r\nPassword: <span style=\"color:#c0392b\"><em>1234</em></span><br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{website link}</em></span><br />\r\n<br />\r\n&nbsp;<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em>', '1', '2023-04-19 06:36:22', 3);
 INSERT INTO `etemp_templates` (`id`, `template_name`, `template_body`, `template_category`, `template_date_created`, `template_created_by`) VALUES
 (35, 'Job Listing', 'Dear Valued Client,<br />\r\n<br />\r\nWe have implemented your requested change(s) on the website:<br />\r\n<br />\r\n<span style=\"color:#c0392b\"><em><strong>{Page Title}</strong></em></span><br />\r\n- added job listing functionality on content area<br />\r\n<span style=\"color:#2980b9\"><em>{page link here...}</em></span><br />\r\n<br />\r\nTo manage the job listing, please follow the steps below:<br />\r\n<br />\r\nFirst, login using the following information:<br />\r\n&nbsp;&nbsp;&nbsp; Login link: <span style=\"color:#2980b9\"><em>{WP login link here...}</em></span><br />\r\n&nbsp;&nbsp;&nbsp; Username: <span style=\"color:#2980b9\"><em>{username here...}</em></span><br />\r\n&nbsp;&nbsp;&nbsp; Password: <span style=\"color:#2980b9\"><em>{password here...}</em></span><br />\r\n<br />\r\nOnce logged in, open the link below for the guidelines on using WP Job Openings plugin.<br />\r\n<br />\r\n<a href=\"https://drive.google.com/file/d/1JwUN7tKbnvFIXVCmyWVKi00nuAtyYYby/view?usp=sharing\" target=\"_blank\">https://drive.google.com/file/d/1JwUN7tKbnvFIXVCmyWVKi00nuAtyYYby/view?usp=sharing</a><br />\r\n<br />\r\nShould you have other concerns, please let us know.<br />\r\n<br />\r\n<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em><br />\r\n<br />\r\n<span style=\"color:#4e5f70\"><em>Sample Task: (Task ID:1267629)</em></span>', '1', '2023-04-12 03:34:11', 3),
 (36, 'Error Updating WordPress Version', 'Dear Valued Client,<br />\r\n<br />\r\nWe&#39;re having an error upgrading your WordPress version is because of the customization we make of all websites that are hosted with us. This is to increase the security of your website as well as the server where it resides. Please be informed that we are currently working on upgrading your WordPress version as well as the PHP version for its compatibility.<br />\r\n<br />\r\n<span style=\"color:#2980b9\"><em>{ website link }</em></span><br />\r\n<br />\r\nShould you have other concerns, please let us know.<br />\r\n<br />\r\n<br />\r\nSincerely,<br />\r\nProweaver Support Team<br />\r\n<br />\r\n<em>{control number}</em><br />\r\n<br />\r\n<span style=\"color:#2c3e50\"><em>Sample Task: (Task ID: 1339269)</em></span>', '1', '2023-04-12 03:34:10', 3),
@@ -145,14 +187,106 @@ CREATE TABLE `etemp_templates_tags` (
 --
 
 INSERT INTO `etemp_templates_tags` (`id`, `id_template`, `id_tag`) VALUES
-(6, 2, 1),
-(7, 2, 2),
-(8, 2, 3),
-(9, 1, 1),
-(10, 1, 1),
-(11, 1, 2),
-(12, 4, 1),
-(13, 4, 2);
+(2, 2, 3),
+(3, 1, 2),
+(4, 3, 5),
+(5, 3, 6),
+(6, 3, 7),
+(7, 3, 8),
+(8, 4, 5),
+(9, 4, 6),
+(10, 4, 8),
+(11, 4, 1),
+(12, 4, 11),
+(13, 4, 12),
+(14, 4, 13),
+(15, 5, 11),
+(16, 5, 12),
+(17, 5, 1),
+(18, 6, 11),
+(19, 6, 12),
+(20, 6, 13),
+(21, 6, 1),
+(22, 7, 14),
+(23, 7, 15),
+(24, 8, 11),
+(25, 9, 11),
+(26, 9, 17),
+(27, 9, 16),
+(28, 8, 18),
+(29, 10, 14),
+(30, 10, 20),
+(31, 10, 19),
+(32, 11, 5),
+(33, 11, 21),
+(34, 11, 22),
+(35, 12, 24),
+(36, 12, 25),
+(37, 13, 27),
+(38, 13, 26),
+(39, 14, 5),
+(40, 14, 28),
+(41, 14, 29),
+(42, 14, 30),
+(43, 14, 31),
+(44, 15, 32),
+(45, 16, 11),
+(46, 16, 12),
+(47, 43, 33),
+(48, 42, 11),
+(49, 42, 12),
+(50, 42, 1),
+(51, 41, 37),
+(52, 41, 35),
+(53, 41, 36),
+(54, 39, 18),
+(55, 39, 11),
+(56, 40, 25),
+(57, 40, 39),
+(58, 40, 40),
+(59, 38, 40),
+(60, 38, 8),
+(61, 38, 41),
+(62, 37, 42),
+(63, 36, 41),
+(64, 36, 44),
+(65, 36, 43),
+(66, 35, 17),
+(67, 35, 46),
+(68, 35, 40),
+(69, 34, 37),
+(70, 34, 11),
+(71, 34, 12),
+(72, 34, 47),
+(73, 34, 1),
+(74, 33, 17),
+(75, 33, 20),
+(76, 33, 8),
+(78, 32, 17),
+(79, 32, 20),
+(80, 32, 40),
+(81, 32, 39),
+(82, 32, 8),
+(83, 31, 49),
+(84, 31, 48),
+(85, 31, 25),
+(86, 30, 30),
+(87, 30, 29),
+(88, 30, 28),
+(89, 30, 8),
+(90, 29, 50),
+(91, 29, 20),
+(92, 28, 15),
+(93, 28, 51),
+(94, 27, 28),
+(95, 27, 20),
+(96, 27, 8),
+(99, 23, 52),
+(100, 23, 53),
+(101, 19, 17),
+(102, 19, 20),
+(103, 20, 11),
+(104, 20, 47);
 
 -- --------------------------------------------------------
 
@@ -187,6 +321,7 @@ INSERT INTO `etemp_users` (`id`, `first_name`, `last_name`, `username`, `passwor
 --
 ALTER TABLE `etemp_category`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `category_name` (`category_name`),
   ADD KEY `id` (`id`);
 
 --
@@ -224,25 +359,25 @@ ALTER TABLE `etemp_users`
 -- AUTO_INCREMENT for table `etemp_category`
 --
 ALTER TABLE `etemp_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `etemp_tags`
 --
 ALTER TABLE `etemp_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `etemp_templates`
 --
 ALTER TABLE `etemp_templates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `etemp_templates_tags`
 --
 ALTER TABLE `etemp_templates_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `etemp_users`

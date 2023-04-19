@@ -51,10 +51,16 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
+                        <div class="row">
+                            <a href="<?php echo base_url(); ?>" class="btn btn-md btn-success mx-auto">Go to HOME page »</a>
+                        </div>
+
             </div>
+
 
         </div>
 

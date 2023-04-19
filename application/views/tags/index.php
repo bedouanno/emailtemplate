@@ -14,13 +14,14 @@
               </div>
               <div class="card-body">
               <div class="list-group">
-                    <?php if(!empty($tags)){ ?>
+                    <!-- <?php if(!empty($tags)){ ?>
                         <?php foreach($tags as $tag): ?>
                         <a class="list-group-item text-gray-900" href="javascript:;"><i class="fa fa-tags text-primary"></i> <?php echo $tag['tag_name']; ?></a>
                         <?php endforeach; ?>
                     <?php }else{ ?>
                         <i>No tags list...</i>
-                    <?php } ?>
+                    <?php } ?> -->
+                    <div id="list-container"></div>
               </div>
               </div>
           </div>

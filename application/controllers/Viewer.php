@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tags extends CI_Controller {
+class Viewer extends CI_Controller {
 
         var $general_info;
 
@@ -30,43 +30,36 @@ class Tags extends CI_Controller {
         }
 
         public function index(){
-                $this->session_users();
+      
                 $data = $this->general_info;
-                $data['title'] = 'Tags';
+                $data['title'] = 'Home';
 
-
-                $data['tags'] = $this->tags_model->get_tags();
-
-                $tagname = $this->input->post('tag_name');
-                $created_by = $data['user_info']['id'];
+                $data['list_templates'] = $this->templates_model->get_templates();
                 
-                
-                // exit;
-                $this->form_validation->set_rules('tag_name','Tag Name','required|is_unique[etemp_tags.tag_name]');
-                $this->form_validation->set_error_delimiters('', '');
-
-                if($this->form_validation->run() === FALSE){
-                        $this->load->view('includes/head', $data);
-                        $this->load->view('includes/siderbar');
-                        $this->load->view('includes/header', $data);
-                        $this->load->view('tags/index', $data);
-                        $this->load->view('includes/footer');
-                }else{
-
-                        $data_post = array(
-                                'tag_name' => $tagname,
-                                'created_by' => $created_by
-                        );
-
-                        $this->tags_model->create_tag($data_post);
-                        $this->session->set_flashdata('msg', 'Added Successfully!');
-                        redirect('tags');
-                }
+                $this->load->view('includes/head', $data);
+      
+                $this->load->view('public_view/index', $data);
+                $this->load->view('includes/footer');
+       
         }
 
 
-        public function view($id = NULL){
-                $this->session_users();
+        public function view_tags(){
+      
+                $data = $this->general_info;
+                $data['title'] = 'Tags';
+
+                $data['tags'] = $this->tags_model->get_tags();
+     
+                
+                $this->load->view('includes/head', $data);
+      
+                $this->load->view('public_view/view_tags', $data);
+                $this->load->view('includes/footer');
+       
+        }
+
+        public function view_tag($id = NULL){
                 $data = $this->general_info;
 
                 $tag = $this->tags_model->get_tag($id);
@@ -95,25 +88,13 @@ class Tags extends CI_Controller {
                         $data['list_templates'] = NULL;
 
                 }
-
-
-                // $data['list_templates'] = $this->templates_model->get_template_w_tag($new_data);
-
-                //       echo "<pre>".print_r($data['list_templates'],true)."</pre>";
-
-
-                // exit;
      
                 $this->load->view('includes/head', $data);
-                $this->load->view('includes/siderbar');
-                $this->load->view('includes/header', $data);
-                $this->load->view('tags/view', $data);
+
+             $this->load->view('public_view/view_tag', $data);
                 $this->load->view('includes/footer');
 
         }
-
-
-
 
 
 }

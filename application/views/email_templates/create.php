@@ -32,11 +32,11 @@
                       <label for="template_name d-block">Category:</label>
                       <select name="template_category" id="template_name" class="form-control">
                          <option value="" selected disabled hidden>--- Choose Category Here ---</option>
-                        <?php foreach($list_category as $category): ?>
-                          <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
-                        <?php endforeach; ?>
                       </select>
                   </div>
+
+
+                  <div id="list-category"></div>
                 </div>
                       <input type="submit" class="btn btn-md btn-success float-right" value="Create" name="submit" id="template_category">
               </form>
@@ -54,13 +54,13 @@
                       <strong><?php echo validation_errors(); ?></strong>
                   </div>
                   <?php endif; ?>
-                  <?php echo form_open('email-templates/create'); ?>
+                  <form id="myForm" action="javascript:;">
                       <div class="form-group row mb-0">
                           <div class="col-sm-10  p-0">
                               <input type="text" required class="form-control" name="category_name" id="category_name" placeholder="Category Name">
                           </div>
                           <div class="col-sm-2 pr-0 pl-1">
-                              <input type="submit" name="submit_category" value="Add" class="btn btn-sm btn-success form-control">
+                              <input id="submitBtns" type="submit" value="Add" class="btn btn-sm btn-success form-control">
                           </div>
                       </div>
                     </form>

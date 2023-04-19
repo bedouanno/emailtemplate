@@ -45,10 +45,14 @@ class Main extends CI_Controller {
 
         public function error_page(){
                 $data = $this->general_info;
+                $data['title'] = '404';
+
         
                 $this->load->view('includes/head', $data);
                 $this->load->view('404');
                 $this->load->view('includes/footer');
         }
+
+
 
 }

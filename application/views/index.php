@@ -17,16 +17,21 @@
                     <?php if(!empty($tags)){ ?>
                         <?php foreach($tags as $tag): ?>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a class="text-gray-900" href="javascript:;"><i class="fa fa-tags text-success"></i> <?php echo $tag['tag_name']; ?></a><span class="badge badge-primary badge-pill">14</span>
+                        <a class="text-gray-900" href="<?php echo base_url(); ?>tag/<?php echo $tag['id']; ?>/view"><i class="fa fa-tags text-success"></i> <?php echo $tag['tag_name']; ?></a><span class="badge badge-primary badge-pill"><?php echo $this->tags_model->get_temp_count($tag['id']); ?></span>
                         </li>
                         <?php endforeach; ?>
                     <?php }else{ ?>
                         <i>No tags list...</i>
                     <?php } ?>
             </ul>
+                <!-- <div id="list-container"></div> -->
         </div>
+
+
+
     </div>
     </div>
 
 </div>
 <!-- /.container-fluid -->
+

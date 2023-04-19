@@ -2,13 +2,13 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= $title; ?></h1>
+        <h1 class="h3 mb-0 text-gray-800"><i class="fa fa-tags text-success mr-2"></i><?= $title; ?></h1>
         <a href="<?php echo base_url(); ?>email-templates/create" class="btn btn-sm btn-success">Create Templates</a>
     </div>
 
-    <div class="row">
+     <div class="row">
 
-
+<?php if($list_templates != NULL){ ?>
         <?php foreach($list_templates as $template): ?>
         <div class="col-lg-6 mb-4">
           <div class="card">
@@ -22,11 +22,10 @@
           </div>
         </div>
       <?php endforeach; ?>
+          <?php  }else{ ?>
+  <h2 class="text-center d-block col-12">No data found!</h2>
+    <?php  } ?>
     </div>
 
-
-    
 </div>
 <!-- /.container-fluid -->
-
-<!-- <?php echo base_url().'email-templates/delete/'.$template['id'].''; ?> -->
