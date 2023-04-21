@@ -21,6 +21,12 @@ class Templates_model extends CI_Model {
     }
 
 
+    public function create_subject_extension($data_post){
+        return $this->db->insert('etemp_subject_extension',$data_post);
+    }
+
+
+
     public function get_template($id = FALSE){
         if($id === FALSE){
             $query = $this->db->get('etemp_templates');
@@ -44,7 +50,8 @@ class Templates_model extends CI_Model {
         $this->db->select('*');
         // $this->db->from('etemp_category');
         $this->db->where_in('etemp_templates.id', $new_data);
-        $this->db->join('etemp_category', 'etemp_category.id = etemp_templates.template_category');
+        // $this->db->join('etemp_category', 'etemp_category.id = etemp_templates.template_category');
+        
 
         $query = $this->db->get('etemp_templates');    
         return $query->result_array();
@@ -63,6 +70,15 @@ class Templates_model extends CI_Model {
 
     public function add_tags_template($data_post){
         return $this->db->insert('etemp_templates_tags',$data_post);
+    }
+
+    public function search_keyword($key_word =  NULL){
+        $this->db->select('*');
+        $this->db->from('etemp_templates');
+        $this->db->like('template_name', $key_word);
+        $this->db->or_like('template_body', $key_word);
+        $query = $this->db->get();
+        return $query->result();
     }
 
 

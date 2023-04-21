@@ -50,7 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['search/keyword/(:any)'] = 'ajaxcontroller/search_keyword/$1';
 $route['ajax'] = 'ajaxcontroller/do_ajax_post';
+$route['ajaxse'] = 'ajaxcontroller/do_ajax_post_se';
 $route['create_tag'] = 'ajaxcontroller/do_create_tag';
 $route['ajax-tags/(:any)'] = 'ajaxcontroller/do_ajax_tags/$1';
 $route['get-category'] = 'ajaxcontroller/get_ajax_category';
@@ -74,6 +76,7 @@ $route['tag/(:any)/view'] = 'tags/view/$1';
 // PUBLIC VIEW
 $route['view/tags'] = 'viewer/view_tags';
 $route['tag/(:any)/templates'] = 'viewer/view_tag/$1';
+$route['search'] = 'viewer/search';
 
 // Main routes
 $route['logout'] = 'login/logout';

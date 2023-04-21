@@ -22,8 +22,8 @@ public function index() {
     $data = $this->general_info;
      $data['title'] = 'Login';
 
-    $this->load->helper("ipblocker_helper");
-    block_ip();
+    // $this->load->helper("ipblocker_helper");
+    // block_ip();
 
     $this->form_validation->set_rules('username', 'Username', 'trim|required');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -66,8 +66,8 @@ public function index() {
 
 // Logout from admin page
 public function logout($page = 'logout') {
-    $this->load->helper("ipblocker_helper");
-    block_ip();
+    // $this->load->helper("ipblocker_helper");
+    // block_ip();
     $data['sitename'] = 'PluginTracker';
     // Removing session data
     $sess_array = array('username' => '');

@@ -82,27 +82,22 @@ class Tags extends CI_Controller {
 
                 $new_data = [];
 
-                foreach($temp as $tmp):
+                foreach($temp as $tmp): 
 
                     $new_data[] = $tmp['id_template'];
 
                 endforeach;
 
                 if(!empty($new_data)){
-                        $data['list_templates'] = $this->tags_model->get_tags_template($new_data);
+                       $data['list_templates'] = $this->templates_model->get_template_w_tag($new_data);
                 
                 }else{
                         $data['list_templates'] = NULL;
 
                 }
 
-
-                // $data['list_templates'] = $this->templates_model->get_template_w_tag($new_data);
-
-                //       echo "<pre>".print_r($data['list_templates'],true)."</pre>";
-
-
-                // exit;
+        // print_r( $data['list_templates']);
+        //         exit;
      
                 $this->load->view('includes/head', $data);
                 $this->load->view('includes/siderbar');

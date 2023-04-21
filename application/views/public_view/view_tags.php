@@ -6,6 +6,7 @@
         <?php if(!isset($this->session->userdata['loggedin']) && !isset($_SESSION["loggedin"])){  ?>
         <a href="<?php echo base_url(); ?>login" class="btn btn-sm btn-success float-right"><i class="fa fa-key" aria-hidden="true"></i></a>
         <a href="<?php echo base_url(); ?>view/tags" class="btn btn-sm btn-warning float-right mr-2"><i class="fa fa-tags" aria-hidden="true"></i></a>
+        <a href="<?php echo base_url(); ?>search" class="btn btn-sm btn-success float-right mr-2"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
         <a href="<?php echo base_url(); ?>" class="btn btn-sm btn-success float-right mr-2"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
 
         <?php } else { ?>

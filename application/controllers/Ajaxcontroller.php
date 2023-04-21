@@ -55,6 +55,33 @@ class AjaxController extends CI_Controller {
         }
     }
 
+    public function do_ajax_post_se() {
+        // Handle the AJAX POST request
+        if ($this->input->is_ajax_request()) {
+            $data = $this->input->post(); // Retrieve POST data
+            // Process the data and send response back
+            $result = $this->templates_model->create_subject_extension($data);
+            
+            // Send response back
+            if ($result) {
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Data processed successfully!',
+                    'data' => $result
+                );
+            } else {
+                $response = array(
+                    'status' => 'error',
+                    'message' => 'Data processing failed!',
+                    'data' => null
+                );
+            }
+            echo json_encode($response);
+        } else {
+            show_404(); // Return a 404 error if it's not an AJAX request
+        }
+    }
+
 
     public function do_create_tag() {
         // Handle the AJAX POST request
@@ -166,8 +193,13 @@ class AjaxController extends CI_Controller {
 
         public function get_tags_template($id = NULL) {
 
+            if($id != NULL){
 
-           $data = $this->tags_model->get_template_tags($id);
+             $data = $this->tags_model->get_template_tags($id);
+
+            }else{
+                show_404();
+            }
 
 
    
@@ -178,6 +210,16 @@ class AjaxController extends CI_Controller {
             endforeach;
 
             $data2 = $this->tags_model->get_temp_tags($new_data);
+
+            if(!empty($new_data)){
+                $data2 = $this->tags_model->get_temp_tags($new_data);
+                
+            }else{
+                // $data2 = $this->tags_model->get_tags();
+                show_404();
+            }
+
+
             
             echo json_encode($data2, TRUE);
 
@@ -208,6 +250,18 @@ class AjaxController extends CI_Controller {
             // Return an error response to the front-end
             // $response = array('status' => 'error', 'message' => 'Failed to delete record');
             }
+        }
+
+
+        public function search_keyword($key_word){
+            // print_r($key_word);
+
+            $data = $this->templates_model->search_keyword($key_word);
+
+            // print_r($data);
+
+            echo json_encode($data, TRUE);
+
 
         }
 }

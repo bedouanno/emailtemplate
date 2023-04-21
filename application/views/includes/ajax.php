@@ -33,6 +33,55 @@
 
 $(document).ready(function() {
 
+    $('#submitBtnSE').click(function() {
+        // Get the data from the form
+
+        event.preventDefault()
+        if( !$('input#extension_name').val() ) {
+            $.sweetModal({
+                content: 'Empty Field!',
+                icon: $.sweetModal.ICON_WARNING
+            });
+        }else{
+        var formData = {
+            extension_name: $('#extension_name').val()
+        }
+
+
+        // Perform the AJAX POST request
+        $.ajax({
+            url: '<?php echo base_url(); ?>ajaxse', // The URL to your controller's method
+            type: 'post',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                // Handle the response from the server
+                if (response.status == 'success') {
+                   $.sweetModal({
+                        content: 'Created subject extension successfully!',
+                        icon: $.sweetModal.ICON_SUCCESS
+                    });
+
+                } else {
+              
+                    $.sweetModal({
+                    content: response.message,
+                    icon: $.sweetModal.ICON_WARNING
+                });
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle any errors that occur during the request
+                // console.error(xhr.responseText);
+                    $.sweetModal({
+                    content: "Subject extension name is already exist!",
+                    icon: $.sweetModal.ICON_WARNING
+                });
+            }
+        });
+    }
+    });
+
 
 
     $('#submitBtns').click(function() {
@@ -116,7 +165,9 @@ $(document).ready(function() {
         var idtemp2 = $('#idtemp').val();
 
 
-        $.ajax({
+        if(jQuery.type(idtemp2) != "undefined"){
+
+       $.ajax({
         url: '<?php echo site_url('tags-json'); ?>/'+idtemp2, // URL to the controller method
         type: "GET",
         dataType: "json",
@@ -146,7 +197,7 @@ $(document).ready(function() {
         }
         });
 
-
+        // console.log(idtemp2);
 
         $.ajax({
         url: '<?php echo site_url('get-tags-template'); ?>/'+idtemp2, // URL to the controller method
@@ -181,6 +232,14 @@ $(document).ready(function() {
         });
         
 
+
+
+        }
+
+
+
+
+ 
 
 
  
@@ -225,7 +284,7 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 // Handle any errors that occur during the request
-                console.error(xhr.responseText);
+                // console.error(xhr.responseText);
             }
         });
     
@@ -295,12 +354,69 @@ $(document).ready(function() {
     });
 
 
-        
+   $('#search_btn').click(function() {
+
+        var keywrd = $('input#input_keyword').val();
+
+        // $('#search_result').html($('input#input_keyword').val());
+
+// alert("<?php //echo site_url('search/keyword'); ?>/"+keywrd);
+
+        $.ajax({
+            url: '<?php echo site_url('search/keyword'); ?>/'+keywrd, // URL to the controller method
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+            
+            var listHtml = '<div class="row">';
+                for (var i = 0; i < response.length; i++) {
+                    let item = response[i];
+                //    var itemb = (`${item.template_body}`).text();
+
+            var strippedText = String(item.template_body);
+            let unStripped = `<div>${strippedText}</div>`;
+            let stripText= unStripped.replaceAll(/<\/?[^>]+(>|$)/gi, "");
+
+            // console.log();
+
+                    listHtml += `<div class="col-lg-6 mb-4"><div class="card"><div class="card-header"><strong>${item.template_name}</strong> <button onclick="copyToClipboard('#demo${item.id}')" class="btn btn-sm btn-primary float-right ml-2">Copy</button>
+                    
+                    <button onclick="popup_emailheader('#pop${item.id}')" class="btn btn-sm btn-primary float-right">Email Header</button> 
+                    </div>
+                    
+                                <div class="card-body csstemplate2" id="pop${item.id}" style="display:none">
+            <ul class="list-group" style="list-style: none">
+            <li>Email Subject:	<strong>Account Name <span class="text-danger">(add email extension)</span></strong></li>
+            <li>To:	<i>client's email address</i></li>
+            <li>Cc:	</li>
+            <li>Agent to Queue:	refer <a onclick="open_pop('#popp')"  href="javascript:;" class="badge badge-sm badge-danger" id="opennote">Open Note</a></li>
+            </ul>
+            </div>
+                    
+                    
+                    <div class="card-body csstemplate">${item.template_body}<textarea class="d-none" id="demo${item.id}">${stripText}</textarea></div></div></div>`;
+                    }
+                listHtml += '</div>';
+
+
+
+        // Append the generated list HTML to a container element
+        $('#search_result').html(listHtml);
+
+
+        },
+        error: function(xhr, status, error) {
+            // console.error(xhr.responseText);
+        }
+
+    });
 
 
 
 });
 
+
+});
 
 
     </script>

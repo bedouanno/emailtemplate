@@ -44,7 +44,7 @@
         </div>      
       </div>
               <div class="col-lg-4">
-            <div class="card">
+            <div class="card mb-4">
               <div class="card-header">
               <i class="fa fa-plus mr-2"></i>Add Template Category
               </div>
@@ -66,7 +66,33 @@
                     </form>
               </div>
             </div>
+
+
+            <div class="card">
+              <div class="card-header">
+              <i class="fa fa-plus mr-2"></i>Create Email Subject Extension
+              </div>
+              <div class="card-body">
+                  <?php if(!empty(validation_errors()) and $this->input->post('submit_category')): ?>
+                  <div class="alert alert-dismissible alert-danger">
+                      <strong><?php echo validation_errors(); ?></strong>
+                  </div>
+                  <?php endif; ?>
+                  <form id="myFormSE" action="javascript:;">
+                      <div class="form-group row mb-0">
+                          <div class="col-sm-10  p-0">
+                              <input type="text" required class="form-control" name="extension_name" id="extension_name" placeholder="Subject Extension Name">
+                          </div>
+                          <div class="col-sm-2 pr-0 pl-1">
+                              <input id="submitBtnSE" type="submit" value="Add" class="btn btn-sm btn-success form-control">
+                          </div>
+                      </div>
+                    </form>
+              </div>
+            </div>
           </div>
+
+
     </div>
     
 </div>

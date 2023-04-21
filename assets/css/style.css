@@ -1,3 +1,15 @@
 
-.csstemplate{background: #000;color: #fff;border-radius: 12px;}
+.csstemplate{background: #000;color: #fff;border-radius: 12px; border-top-left-radius: 0; border-top-right-radius: 0;}
+.csstemplate2{background: #000;color: #fff; border-bottom: 1px solid rgba(255,255,255,.1);}
 .csstemplate p{margin-bottom: 0 !important}
+
+
+#floater-note{position: fixed; left: 0; bottom: 0; z-index: 9;}
+
+a#open_notes{text-decoration: none; -webkit-transition: all .3s linear; transition: all .3s linear; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; font-weight: 700; }
+a#open_notes:hover{text-align: center; border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important;}
+
+#card-display-css .card-header{cursor: crosshair;}
+#card-display-css{color: #000 !important;}
+
+#cstrong{width: 400px; max-width: 100%;}

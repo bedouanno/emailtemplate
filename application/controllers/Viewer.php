@@ -82,18 +82,29 @@ class Viewer extends CI_Controller {
                 endforeach;
 
                 if(!empty($new_data)){
-                        $data['list_templates'] = $this->tags_model->get_tags_template($new_data);
+                       $data['list_templates'] = $this->templates_model->get_template_w_tag($new_data);
                 
                 }else{
                         $data['list_templates'] = NULL;
 
                 }
+
      
                 $this->load->view('includes/head', $data);
-
-             $this->load->view('public_view/view_tag', $data);
+                $this->load->view('public_view/view_tag', $data);
                 $this->load->view('includes/footer');
 
+        }
+
+        public function search(){
+                $data = $this->general_info;
+                $data['title'] = "Search";
+
+
+                $this->load->view('includes/head', $data);
+                $this->load->view('public_view/search', $data);
+                $this->load->view('includes/footer');
+        
         }
 
 

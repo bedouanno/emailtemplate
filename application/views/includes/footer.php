@@ -5,7 +5,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website <?php echo date_format(date_create($current_datetime),'Y'); ?></span>
+                        <span>Copyright &copy; debO+ <?php echo date_format(date_create($current_datetime),'Y'); ?></span>
                     </div>
                 </div>
             </footer>
@@ -21,6 +21,26 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+
+    <div id="floater-note">
+        <a href="javascript:;" id="open_notes" class="bg-danger p-2 rounded text-white">Open Note !!</a>
+        <div id="card-display-css" class="card d-none">
+            <div class="card-header">
+                <h5 class="text-danger mb-0 mt-1 font-weight-bold d-block float-left">Notes:</h5>
+                <a href="javascript:;" id="card-closed" class="float-right btn btn-sm btn-danger">X</a>
+            </div>
+            <div class="card-body">
+            <p class="mb-0">- If shared task is about activation, emails should be sent separately.</p>
+            <p>- Email Address References (all found in Orchestra under Account Details):</p>
+            <ul>
+            <li>client's email address - "To" field in Email Address for Updates</li>
+            <li>cc email address(es) - "CC" field in Email Address for Updates (if applicable)</li>
+            <li>techx email address -  "Tech X" field in Sales Details</li>
+            </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -58,6 +78,7 @@
     <!-- Page level custom scripts -->
     <script src="<?php echo base_url(); ?>/assets/js/demo/chart-area-demo.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/demo/chart-pie-demo.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>/assets/sweet-modal/jquery.sweet-modal.min.js"></script>
 
 <script src="https://cdn.ckeditor.com/4.20.2/full/ckeditor.js"></script>
@@ -83,6 +104,14 @@ function copyToClipboard(element) {
     icon: $.sweetModal.ICON_SUCCESS});
 
 }
+
+
+function popup_emailheader(e) {
+    $(e).toggle();
+
+    // alert(e);
+}
+
 </script>
 
 
@@ -106,15 +135,70 @@ function copyToClipboard(element) {
 
     }
 
-   
 
+ 
+
+
+
+
+
+//  $("#card-display-css").sortable({ handle: "#card-display-css .card-header" });
 
   </script>
 
 <?php $this->load->view('includes/ajax.php'); ?>
 
 
+<script>
 
+$('#open_notes').click(function() {
+
+  $('#card-display-css').removeClass( "d-none" );
+  $('#open_notes').addClass( "d-none" );
+
+    $( "#card-display-css" ).draggable({
+        cancel: "#card-display-css .card-body"
+    
+    });
+
+
+
+ });
+
+ $('#card-closed').click(function() {
+ 
+ 
+  $('#card-display-css').addClass( "d-none" );
+  $('#open_notes').removeClass( "d-none" );
+
+
+
+
+    $( "#card-display-css" ).draggable({
+        refreshPositions: true
+    
+    });
+
+});
+
+//  $('a#opennote').click(function() {
+// alert('test');
+// });
+
+
+function open_pop(e) {
+
+  $('#card-display-css').removeClass( "d-none" );
+  $('#open_notes').addClass( "d-none" );
+
+    $( "#card-display-css" ).draggable({
+        cancel: "#card-display-css .card-body"
+    
+    });
+}
+
+
+</script>
 
 
 

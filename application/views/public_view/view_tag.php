@@ -6,6 +6,7 @@
         <?php if(!isset($this->session->userdata['loggedin']) && !isset($_SESSION["loggedin"])){  ?>
         <a href="<?php echo base_url(); ?>login" class="btn btn-sm btn-success float-right"><i class="fa fa-key" aria-hidden="true"></i></a>
         <a href="<?php echo base_url(); ?>view/tags" class="btn btn-sm btn-warning float-right mr-2"><i class="fa fa-tags" aria-hidden="true"></i></a>
+        <a href="<?php echo base_url(); ?>search" class="btn btn-sm btn-success float-right mr-2"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
         <a href="<?php echo base_url(); ?>" class="btn btn-sm btn-success float-right mr-2"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
 
 
@@ -23,7 +24,17 @@
         <div class="col-lg-6 mb-4">
           <div class="card">
             <div class="card-header">
+            
               <strong><?php echo $template['category_name'].' - '.$template['template_name']; ?></strong> <button onclick="copyToClipboard('#demo<?php echo $template['id']; ?>')" class="btn btn-sm btn-primary float-right">Copy</button> 
+            </div>
+
+            <div class="card-body csstemplate2" id="pop<?php echo $template['id']; ?>" style="display:none">
+            <ul class="list-group" style="list-style: none">
+            <li>Email Subject:	<strong>Account Name <span class="text-danger">(add email extension)</span></strong></li>
+            <li>To:	<i>client's email address</i></li>
+            <li>Cc:	</li>
+            <li>Agent to Queue:	refer <a onclick="open_pop()" href="javascript:;" class="badge badge-sm badge-danger" id="opennote">Open Note</a></li>
+            </ul>
             </div>
             <div class="card-body csstemplate">
                 <?php echo $template['template_body']; ?>

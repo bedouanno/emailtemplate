@@ -37,8 +37,7 @@ class Tags_model extends CI_Model {
 
     }
 
-    public function get_template_tags($id = NULL){
-
+    public function get_template_tags($id = 0){
         $this->db->where('etemp_templates_tags.id_template', $id);
         $query = $this->db->get('etemp_templates_tags');
         return $query->result_array();
@@ -53,7 +52,7 @@ class Tags_model extends CI_Model {
 
     }
 
-    public function get_temp_tags($data_new = 0){
+    public function get_temp_tags($data_new = NULL){
         $this->db->where_in('etemp_tags.id', $data_new);
         $query = $this->db->get('etemp_tags');    
         return $query->result_array();
