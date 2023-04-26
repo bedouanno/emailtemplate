@@ -1,4 +1,4 @@
-
+body{overflow: auto !important;}
 .csstemplate{background: #000;color: #fff;border-radius: 12px; border-top-left-radius: 0; border-top-right-radius: 0;}
 .csstemplate2{background: #000;color: #fff; border-bottom: 1px solid rgba(255,255,255,.1);}
 .csstemplate p{margin-bottom: 0 !important}

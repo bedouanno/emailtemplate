@@ -25,6 +25,16 @@ class Templates_model extends CI_Model {
         return $this->db->insert('etemp_subject_extension',$data_post);
     }
 
+    public function get_subject_extensions(){
+        $query = $this->db->get('etemp_subject_extension');
+        return $query->result_array();
+    }
+
+    public function get_subject_extension($id = FALSE){
+        $query = $this->db->get_where('etemp_subject_extension', array('id' => $id));
+        return $query->row_array();
+    }
+
 
 
     public function get_template($id = FALSE){
@@ -68,18 +78,29 @@ class Templates_model extends CI_Model {
         return $result;
      }
 
+    public function update_subjectse($id = NULL, $data = NULL) {
+        $ps = $data;
+        $this->db->set($ps);
+        $this->db->where('etemp_templates.id', $id);
+        $this->db->update('etemp_templates');
+        $result =  $this->db->affected_rows(); 
+        return $result;
+     }
+
     public function add_tags_template($data_post){
         return $this->db->insert('etemp_templates_tags',$data_post);
     }
 
     public function search_keyword($key_word =  NULL){
         $this->db->select('*');
-        $this->db->from('etemp_templates');
+        $this->db->from('etemp_subject_extension');
+        $this->db->join('etemp_templates', 'etemp_templates.template_subject_ext = etemp_subject_extension.id', 'right');
         $this->db->like('template_name', $key_word);
         $this->db->or_like('template_body', $key_word);
         $query = $this->db->get();
-        return $query->result();
+        return $query->result_array();
     }
+
 
 
 }

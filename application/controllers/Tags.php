@@ -54,8 +54,7 @@ class Tags extends CI_Controller {
                 }else{
 
                         $data_post = array(
-                                'tag_name' => $tagname,
-                                'created_by' => $created_by
+                                'tag_name' => $tagname
                         );
 
                         $this->tags_model->create_tag($data_post);

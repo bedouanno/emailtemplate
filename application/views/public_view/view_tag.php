@@ -25,12 +25,13 @@
           <div class="card">
             <div class="card-header">
             
-              <strong><?php echo $template['category_name'].' - '.$template['template_name']; ?></strong> <button onclick="copyToClipboard('#demo<?php echo $template['id']; ?>')" class="btn btn-sm btn-primary float-right">Copy</button> 
+              <strong><?php echo $template['template_name']; ?></strong> <button onclick="copyToClipboard('#demo<?php echo $template['id']; ?>')" class="btn btn-sm btn-primary float-right ml-2">Copy</button> 
+                <button onclick="popup_emailheader('#pop<?php echo $template['id']; ?>')" class="btn btn-sm btn-primary float-right">Email Header</button> 
             </div>
 
             <div class="card-body csstemplate2" id="pop<?php echo $template['id']; ?>" style="display:none">
             <ul class="list-group" style="list-style: none">
-            <li>Email Subject:	<strong>Account Name <span class="text-danger">(add email extension)</span></strong></li>
+            <li>Email Subject:	<strong>Account Name <span class="text-danger">(<?php if($this->templates_model->get_subject_extension($template['template_subject_ext']) != NULL){ echo $this->templates_model->get_subject_extension($template['template_subject_ext'])['extension_name']; }else{ echo 'Add Subject Extension'; } ?>)</span></strong></li>
             <li>To:	<i>client's email address</i></li>
             <li>Cc:	</li>
             <li>Agent to Queue:	refer <a onclick="open_pop()" href="javascript:;" class="badge badge-sm badge-danger" id="opennote">Open Note</a></li>

@@ -15,7 +15,7 @@ class Category_model extends CI_Model {
 
     }
 
-      public function get_category_id($id = FALSE){
+    public function get_category_id($id = FALSE){
         $query = $this->db->get_where('etemp_category', array('id' => $id));
         return $query->row_array();
     }

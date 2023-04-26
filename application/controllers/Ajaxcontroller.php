@@ -110,12 +110,18 @@ class AjaxController extends CI_Controller {
         }
     }
 
-            public function get_ajax_category() {
-                // Fetch data from the database
-                $data = $this->category_model->get_category();
+        public function get_ajax_category() {
+            // Fetch data from the database
+            $data = $this->category_model->get_category();
 
-                echo json_encode($data, TRUE);
+            echo json_encode($data, TRUE);
+    }
 
+
+        public function get_ajax_subject_ext() {
+            // Fetch data from the database
+            $data = $this->templates_model->get_subject_extensions();
+            echo json_encode($data, TRUE);
 
         }
 
@@ -254,14 +260,38 @@ class AjaxController extends CI_Controller {
 
 
         public function search_keyword($key_word){
-            // print_r($key_word);
-
-            $data = $this->templates_model->search_keyword($key_word);
-
-            // print_r($data);
-
+           $data = $this->templates_model->search_keyword($key_word);
             echo json_encode($data, TRUE);
 
+
+        }
+
+
+        public function update_se_name($id){
+        // Handle the AJAX POST request
+        if ($this->input->is_ajax_request()) {
+            $data = $this->input->post(); // Retrieve POST data
+            // Process the data and send response back
+            $result = $this->templates_model->update_subjectse($id, $data);
+            
+            // Send response back
+            if ($result) {
+                $response = array(
+                    'status' => 'success',
+                    'message' => 'Data processed successfully!',
+                    'data' => $result
+                );
+            } else {
+                $response = array(
+                    'status' => 'error',
+                    'message' => 'Data processing failed!',
+                    'data' => null
+                );
+            }
+            echo json_encode($response);
+        } else {
+            show_404(); // Return a 404 error if it's not an AJAX request
+        }
 
         }
 }

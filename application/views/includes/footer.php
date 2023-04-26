@@ -197,6 +197,11 @@ function open_pop(e) {
     });
 }
 
+ $('#update_btn').click(function() {
+     $('#form_update').removeClass( "d-none" );
+     $('#form_update').addClass( "d-inline-block" );
+ });
+
 
 </script>
 
