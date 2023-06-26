@@ -77,11 +77,16 @@ $route['tag/(:any)/view'] = 'tags/view/$1';
 $route['view/tags'] = 'viewer/view_tags';
 $route['tag/(:any)/templates'] = 'viewer/view_tag/$1';
 $route['search'] = 'viewer/search';
+$route['view/modification'] = 'viewer/index';
+$route['view/rwc'] = 'viewer/index_rwc';
+$route['view/pdqa'] = 'viewer/index_pdqa';
+
+
 
 // Main routes
 $route['logout'] = 'login/logout';
 $route['login'] = 'login';
 $route['home'] = 'main/index';
-$route['default_controller'] = 'viewer/index';
+$route['default_controller'] = 'viewer/home';
 $route['404_override'] = 'main/error_page';
 $route['translate_uri_dashes'] = FALSE;

@@ -29,12 +29,26 @@ class Viewer extends CI_Controller {
                 }
         }
 
+
+        public function home(){
+
+                $data = $this->general_info;
+                $data['title'] = 'Home';
+
+                $data['list_templates'] = $this->templates_model->get_templates();
+                
+                $this->load->view('includes/head', $data);
+                $this->load->view('public_view/home', $data);
+                $this->load->view('includes/footer');
+       
+        }
+
         public function index(){
       
                 $data = $this->general_info;
                 $data['title'] = 'Home';
 
-                $data['list_templates'] = $this->templates_model->get_templates();
+                $data['list_templates'] = $this->templates_model->get_templates(1);
                 
                 $this->load->view('includes/head', $data);
       
@@ -42,6 +56,36 @@ class Viewer extends CI_Controller {
                 $this->load->view('includes/footer');
        
         }
+
+        public function index_rwc(){
+      
+                $data = $this->general_info;
+                $data['title'] = 'Home';
+
+                $data['list_templates'] = $this->templates_model->get_templates(2);
+                
+                $this->load->view('includes/head', $data);
+      
+                $this->load->view('public_view/index_rwc', $data);
+                $this->load->view('includes/footer');
+       
+        }
+
+        public function index_pdqa(){
+      
+                $data = $this->general_info;
+                $data['title'] = 'Home';
+
+                $data['list_templates'] = $this->templates_model->get_templates(3);
+                
+                $this->load->view('includes/head', $data);
+      
+                $this->load->view('public_view/index_pdqa', $data);
+                $this->load->view('includes/footer');
+       
+        }
+
+
 
 
         public function view_tags(){

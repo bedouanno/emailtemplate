@@ -5,7 +5,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; debO+ <?php echo date_format(date_create($current_datetime),'Y'); ?></span>
+                        <span>Copyright &copy; debO+ x APPS Team (Proweaver Tools) <?php echo date_format(date_create($current_datetime),'Y'); ?></span>
                     </div>
                 </div>
             </footer>
@@ -22,7 +22,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-
+<!-- for Modi, rePDQA, PDQA -->
     <div id="floater-note">
         <a href="javascript:;" id="open_notes" class="bg-danger p-2 rounded text-white">Open Note !!</a>
         <div id="card-display-css" class="card d-none">
@@ -37,10 +37,13 @@
             <li>client's email address - "To" field in Email Address for Updates</li>
             <li>cc email address(es) - "CC" field in Email Address for Updates (if applicable)</li>
             <li>techx email address -  "Tech X" field in Sales Details</li>
+            <li><span class="text-danger">FOR RWC:</spam> agent email address -  "Closed By" field in Sales Details</li>
             </ul>
             </div>
         </div>
     </div>
+
+
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -128,8 +131,8 @@ function popup_emailheader(e) {
  
 
     $.sweetModal.confirm('Confirm please?', function() {
-	$.sweetModal('email-templates/delete/'+element);
-    window.location.href = 'email-templates/delete/'+element;
+	$.sweetModal('<?php echo base_url(); ?>/email-templates/delete/'+element);
+    window.location.href = '<?php echo base_url(); ?>/email-templates/delete/'+element;
 
     });
 

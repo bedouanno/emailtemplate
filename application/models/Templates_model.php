@@ -9,11 +9,20 @@ class Templates_model extends CI_Model {
     }
 
 
-    public function get_templates(){
+    public function get_templates($categ = FALSE){
+         if($categ === FALSE){
+
+            $this->db->select('*');
+            $this->db->from('etemp_category');
+            $this->db->join('etemp_templates', 'etemp_category.id = etemp_templates.template_category');
+            $query = $this->db->get();
+            return $query->result_array();
+        }
 
         $this->db->select('*');
         $this->db->from('etemp_category');
         $this->db->join('etemp_templates', 'etemp_category.id = etemp_templates.template_category');
+        $this->db->where('etemp_templates.template_category', $categ );
         $query = $this->db->get();
         // $query = $this->db->get();
 
